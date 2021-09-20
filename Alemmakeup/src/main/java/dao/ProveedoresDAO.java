@@ -14,9 +14,9 @@ public class ProveedoresDAO {
 		Conexion con= new Conexion();
 		try {
 			Statement estatuto = con.getConex().createStatement();
-			estatuto.executeUpdate("INSERT INTO proveedores values('"+prov.getNit_prov()+"','"
+			estatuto.executeUpdate("INSERT INTO proveedores values('"+prov.getId()+"','"+prov.getNit_prov()+"','"
 					+prov.getNombre_prov()+"','"+prov.getDireccion_prov()+"','"+prov.getTelefono_prov()+"','"
-							+prov.getCiudad_prov()+")");
+							+prov.getCiudad_prov()+"')");
 			estatuto.close();
 			con.desconectar();
 		}catch(SQLException e) {
@@ -36,7 +36,7 @@ public class ProveedoresDAO {
 				prov.setNit_prov(res.getString("nit"));
 				prov.setNombre_prov(res.getString("nombre_proveedor"));
 				prov.setDireccion_prov(res.getString("direccion"));
-				prov.setTelefono_prov(Long.parseLong(res.getString("telefono")));
+				prov.setTelefono_prov(res.getString("telefono"));
 				prov.setCiudad_prov(res.getString("ciudad"));
 				
 				misProveedores.add(prov);
@@ -61,7 +61,7 @@ public class ProveedoresDAO {
 				prov.setNit_prov(res.getString("nit"));
 				prov.setNombre_prov(res.getString("nombre_proveedor"));
 				prov.setDireccion_prov(res.getString("direccion"));
-				prov.setTelefono_prov(Long.parseLong(res.getString("telefono")));
+				prov.setTelefono_prov(res.getString("telefono"));
 				prov.setCiudad_prov(res.getString("ciudad"));
 				
 			}res.close();
@@ -78,13 +78,14 @@ public class ProveedoresDAO {
 	public void modificarProveedor(String nit, String nombre, String direccion,String tel, String ciudad){       
        String safe = "SET SQL_SAFE_UPDATES = 0";      
        String consulta = "UPDATE proveedores SET nombre_proveedor='"+nombre+"',direccion='"+direccion+"'"
-       		+"',telefono='"+tel+"'"+"',ciudad='"+ciudad+"'"+ " WHERE nit='"+nit+"'";
+       		+ ",telefono='"+tel+"',ciudad='"+ciudad+"WHERE nit="+nit+"'";
        Conexion con = new Conexion();
-       try {                       
+       try { 	    
             Statement aux = con.getConex().createStatement();
             aux.executeQuery(safe);
             Statement declaracion = con.getConex().createStatement();            
             declaracion.executeUpdate(consulta);
+          
                             
         }catch (Exception e) {
         	System.out.println(e);

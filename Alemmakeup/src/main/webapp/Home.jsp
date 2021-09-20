@@ -16,7 +16,7 @@
 					<ul>
 						<li><a href="Home.jsp">Usuarios</a></li>
 						<li><a href="Clientes.jsp">Clientes</a></li>
-						<li><a href="#">Proveedores</a></li>
+						<li><a href="Proveedores.jsp">Proveedores</a></li>
 						<li><a href="#">Productos</a></li>
 						<li><a href="#">Ventas</a></li>
 						<li><a href="#">Reportes</a></li>

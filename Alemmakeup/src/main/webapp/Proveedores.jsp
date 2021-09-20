@@ -40,7 +40,7 @@
 						<td><label>Nombre Proveedor</label></td>
 						<td><input type="text" name="nombre_p"></td>
 						<td><label>Ciudad</label></td>
-						<td><input type="password" name="ciudad"></td>
+						<td><input type="text" name="ciudad"></td>
 					</tr>					
 					<tr>
 						<td><label>Dirección</label></td>
@@ -72,7 +72,8 @@
 			prov.setNit_prov(nit);
 			prov.setNombre_prov(nombre);
 			prov.setDireccion_prov(direccion);
-			prov.setTelefono_prov(Long.parseLong(telefono));
+			prov.setTelefono_prov(telefono);
+			prov.setCiudad_prov(ciudad);
 			DAO.registrarProveedor(prov);
 			response.sendRedirect("Proveedores.jsp");
 		}else if(request.getParameter("actualizar") != null){
