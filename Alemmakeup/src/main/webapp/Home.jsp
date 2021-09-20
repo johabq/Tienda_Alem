@@ -14,8 +14,8 @@
 			<div class="container nav-container">
 				<nav class="navigation">
 					<ul>
-						<li><a href="Interfaz3.jsp">Usuarios</a></li>
-						<li><a href="#">Clientes</a></li>
+						<li><a href="Home.jsp">Usuarios</a></li>
+						<li><a href="Clientes.jsp">Clientes</a></li>
 						<li><a href="#">Proveedores</a></li>
 						<li><a href="#">Productos</a></li>
 						<li><a href="#">Ventas</a></li>

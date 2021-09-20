@@ -17,8 +17,8 @@
 			<div class="container nav-container">
 				<nav class="navigation">
 					<ul>
-						<li><a href="#">Usuarios</a></li>
-						<li><a href="#">Clientes</a></li>
+						<li><a href="Home.jsp">Usuarios</a></li>
+						<li><a href="Clientes.jsp">Clientes</a></li>
 						<li><a href="#">Proveedores</a></li>
 						<li><a href="#">Productos</a></li>
 						<li><a href="#">Ventas</a></li>
@@ -77,7 +77,7 @@
 			user.setPass(pass);
 			user.setPermisos(0);
 			DAO.registrarUsuario(user);
-			response.sendRedirect("Interfaz3.jsp");
+			response.sendRedirect("Clientes.jsp");
 		}else if(request.getParameter("actualizar") != null){
 			DAO.modificarUsuario(cc, nombre, email);
 		}else if(request.getParameter("borrar") != null){

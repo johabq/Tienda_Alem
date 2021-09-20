@@ -34,11 +34,11 @@
 	            if (!request.getParameterMap().isEmpty()) {
 	            String user = (request.getParameter("usuario"));
 	            String pass = (request.getParameter("pass"));
-	            String admin = "x";
-	            String admin_pass = "xx";
+	            String admin = "admininicial";
+	            String admin_pass = "admin123456";
 
 	            if (user.equals(admin) && pass.equals(admin_pass)){
-	            	response.sendRedirect("Interfaz2.jsp");					
+	            	response.sendRedirect("Home.jsp");					
 	            }else{
 	            	out.println(user);
 	            	%><h2>El usuario y/o contraseña ingresados no son correctos</h2>
