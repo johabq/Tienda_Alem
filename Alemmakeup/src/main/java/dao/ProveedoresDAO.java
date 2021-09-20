@@ -78,7 +78,7 @@ public class ProveedoresDAO {
 	public void modificarProveedor(String nit, String nombre, String direccion,String tel, String ciudad){       
        String safe = "SET SQL_SAFE_UPDATES = 0";      
        String consulta = "UPDATE proveedores SET nombre_proveedor='"+nombre+"',direccion='"+direccion+"'"
-       		+ ",telefono='"+tel+"',ciudad='"+ciudad+"WHERE nit="+nit+"'";
+       		+ ",telefono='"+tel+"',ciudad='"+ciudad+"' WHERE nit='"+nit+"'";
        Conexion con = new Conexion();
        try { 	    
             Statement aux = con.getConex().createStatement();
