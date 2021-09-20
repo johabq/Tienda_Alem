@@ -9,7 +9,7 @@ import dao.ProveedoresDAO;
 
 class ProveedoresDAOTest {
 	
-	Proveedores p1 = new Proveedores(89,"123","San andresito","Cra10","6355343","Cali");
+	Proveedores p1 = new Proveedores(98,"123","San andresito","Cra10","6355343","Cali");
 	Proveedores p2 = new Proveedores(54,"456","Bimbo","Cra7","5435","Buga");
 	ProveedoresDAO dao = new ProveedoresDAO();
 
