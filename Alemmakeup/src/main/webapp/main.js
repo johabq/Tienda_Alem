@@ -19,7 +19,7 @@ function uploadSingleFile(file) {
         var response = JSON.parse(xhr.responseText);
         if(xhr.status == 200) {
             singleFileUploadError.style.display = "none";
-            singleFileUploadSuccess.innerHTML = "<p>File Uploaded Successfully.</p><p>DownloadUrl : <a href='" + response.fileDownloadUri + "' target='_blank'>" + response.fileDownloadUri + "</a></p>";
+            singleFileUploadSuccess.innerHTML = "<p>Cargado Exitosamente!</p><p>Url de Descarga : <a href='" + response.fileDownloadUri + "' target='_blank'>" + response.fileDownloadUri + "</a></p>";
             singleFileUploadSuccess.style.display = "block";
         } else {
             singleFileUploadSuccess.style.display = "none";
@@ -37,7 +37,7 @@ singleUploadForm.addEventListener('submit', function(event){
     var files = singleFileUploadInput.files;
 	
     if(files.length === 0) {
-        singleFileUploadError.innerHTML = "Please select a file";
+        singleFileUploadError.innerHTML = "Por favor seleccione un archivo";
         singleFileUploadError.style.display = "block";
     }
 	console.log(files[0])

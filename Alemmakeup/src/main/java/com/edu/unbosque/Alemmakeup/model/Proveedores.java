@@ -1,9 +1,11 @@
 package com.edu.unbosque.Alemmakeup.model;
 
-import javax.persistence.Entity;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Proveedores {
+	//@Id
 	private int id;
 	private String nit_prov;
 	private String nombre_prov;

@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -38,86 +39,43 @@ public class CSVHelper {
   //Original
   
   public static List<Productos> csvProductos(InputStream is) { //Metodo para leer el CSV
-    try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-        CSVParser csvParser = new CSVParser(fileReader,
-            CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {//Cada linea en forma de registro
+	    try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+	        CSVParser csvParser = new CSVParser(fileReader,
+	            CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {//Cada linea en forma de registro
 
-      List<Productos> productosList = new ArrayList<>();
-      Iterable<CSVRecord> csvRecords = csvParser.getRecords();//Se optiene el valor de cada registro
-      
+	      List<Productos> productosList = new ArrayList<>();
+	      Iterable<CSVRecord> csvRecords = csvParser.getRecords();//Se optiene el valor de cada registro
+	      int tam = 0;
+	      if (csvRecords instanceof Collection<?>) {
+	    	  tam = ((Collection<?>)csvRecords).size();
+	    	}
+	      System.out.println("Tamaño: "+tam);
+	      List<String> list = new ArrayList<>();
+	      for (int aux=0; aux<tam; aux++) {
+	    	  list = getListFromIterator(((List<CSVRecord>) csvRecords).get(aux).iterator());    	  
+	    	  for (int a1=0; a1<list.size(); a1++) {
+	    		  System.out.println("Esto hace el for 2: "+list.get(a1));
+	    		  String[] split = null;
+	    	      split = list.get(a1).split(";");    	      
+	    	      int id = Integer.parseInt(split[0]);
+	    	      int codigo = Integer.parseInt(split[1]);
+	    	      String nombre = split[2];
+	    	      int nitp = Integer.parseInt(split[3]);
+	    	      double pc = Double.parseDouble(split[4]);
+	    	      double iva = Double.parseDouble(split[5]);
+	    	      double pv = Double.parseDouble(split[6]);
+	    	      Productos producto = new Productos(id,codigo,nombre,nitp,pc,iva,pv);   	     
+	    		  productosList.add(producto);
+	    	  }
+	      }
 
-            
-      List<String> list = getListFromIterator(((List<CSVRecord>) csvRecords).get(0).iterator());
-      System.out.println("Lista cosa 1: "+list.get(0));
-      System.out.println("Records: "+csvRecords);
-      for (CSVRecord csvRecord : csvRecords) {
-    	  System.out.println("estoy haciendo parser de CSV");
-    	  Productos prod = new Productos(    			  
-			  Integer.parseInt(csvRecord.get("id")),
-			  Integer.parseInt(csvRecord.get("codigo")),
-			  csvRecord.get("nombre"),
-			  Integer.parseInt(csvRecord.get("nit_prov")),
-			  Double.parseDouble(csvRecord.get("precio_compra")),
-			  Double.parseDouble(csvRecord.get("ivacompra")),
-			  Double.parseDouble(csvRecord.get("precio_venta"))
-            );
-    	  System.out.println("lista: "+prod);
-    	  productosList.add(prod);
-      }
-
-      return productosList;
-      
-    } catch (IOException e) {
-      throw new RuntimeException("Fallo el analisis del archivo CSV: " + e.getMessage());
-    }
-  }
-
-  
-  //prueba1
-  
-  /*
-  public static List<Productos> csvProductos(InputStream is) throws IOException{
-	  List<Productos> listaProductos = new ArrayList<Productos>();
-	  CSVParser parser = CSVParser.parse(is, Charset.defaultCharset(), CSVFormat.DEFAULT.withHeader());
-	  
-	  for(CSVRecord record: parser) {
-		  System.out.println("estoy haciendo parser de CSV");
-		  System.out.println("Esto recibo: "+record);
-		  //Trim para quitar espacios en blanco antes del dato 
-		  int id = Integer.parseInt(record.get("id").trim());
-		  int cod = Integer.parseInt(record.get("codigo").trim());
-		  String nombre = record.get("nombre").trim();
-		  int nitpro = Integer.parseInt(record.get("nit_prov").trim());
-		  double pc = Double.parseDouble(record.get("precio_compra").trim());
-		  double iva = Double.parseDouble(record.get("ivacompra").trim());
-		  double pv = Double.parseDouble(record.get("precio_venta").trim());
-		  
-		  Productos prod = new Productos(id,cod,nombre,nitpro,pc,iva,pv);
-		  listaProductos.add(prod);
+	      return productosList;
+	      
+	    } catch (IOException e) {
+	      throw new RuntimeException("Fallo el analisis del archivo CSV: " + e.getMessage());
+	    }
 	  }
-	  System.out.println(listaProductos);
-	  return listaProductos;
-  }*/
-  
  
-  //Prueba 2
-
-  /*public static List<Productos> csvProductos(File file) throws IOException{
-	  CSVParser parser = new CSVParser(new FileReader(file), CSVFormat.DEFAULT);
-	  List<CSVRecord> list = parser.getRecords();
-	  for (CSVRecord record : list) {
-	      String[] arr = new String[record.size()];
-	      int i = 0;
-	      for (String str : record) {
-	          arr[i++] = str;
-	      }	    
-	  System.out.println(list);
-	  List<Productos> lista1 = new ArrayList<Productos>();
-	  
-	  }return lista1;
-  }*/
-  
-  
   
   private static List<String> getListFromIterator(Iterator<String> iterator) {
 	  
@@ -157,7 +115,5 @@ public static ByteArrayInputStream toCSV(List<Productos> productosList) {// Para
     }
   }
 
-private void add(CSVRecord csvrecord1) {
-	
-}
+
 }
