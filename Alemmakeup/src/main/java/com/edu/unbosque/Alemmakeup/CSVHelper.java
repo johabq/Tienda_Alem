@@ -15,13 +15,11 @@ import java.util.List;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.csv.QuoteMode;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.csv.QuoteMode;
 import org.springframework.web.multipart.MultipartFile;
 
-
-
-import model.Productos;
+import com.edu.unbosque.Alemmakeup.model.Productos;
 
 
 public class CSVHelper {

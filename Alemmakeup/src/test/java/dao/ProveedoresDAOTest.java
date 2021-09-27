@@ -1,11 +1,9 @@
 package dao;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
-import model.Proveedores;
-import dao.ProveedoresDAO;
+import com.edu.unbosque.Alemmakeup.DAO.ProveedoresDAO;
+import com.edu.unbosque.Alemmakeup.model.Proveedores;
 
 class ProveedoresDAOTest {
 	

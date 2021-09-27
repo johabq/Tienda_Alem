@@ -1,4 +1,4 @@
-package dao;
+package com.edu.unbosque.Alemmakeup.DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import model.Proveedores;
+import com.edu.unbosque.Alemmakeup.model.Proveedores;
 
 public class ProveedoresDAO {
 

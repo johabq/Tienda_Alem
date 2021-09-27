@@ -1,7 +1,6 @@
 package com.edu.unbosque.Alemmakeup;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -9,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import model.Productos;
+import com.edu.unbosque.Alemmakeup.model.Productos;
 
 @Service
 public class CSVService {
@@ -22,7 +21,7 @@ public class CSVService {
     try {
     	System.out.println("estoy intentando leer el archivo - services");
       List<Productos> productos = CSVHelper.csvProductos(file.getInputStream());
-      //repository.saveAll(productos);
+      repository.saveAll(productos);
       System.out.println("este: "+productos.get(1));
       System.out.println("lei el archivo services");
     } catch (IOException e) {

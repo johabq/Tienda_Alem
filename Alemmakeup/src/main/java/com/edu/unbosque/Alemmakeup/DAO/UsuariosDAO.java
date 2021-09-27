@@ -1,17 +1,12 @@
-package dao;
+package com.edu.unbosque.Alemmakeup.DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.JOptionPane;
-
-
-import dao.Conexion;
-import model.Usuarios;
+import com.edu.unbosque.Alemmakeup.model.Usuarios;
 
 public class UsuariosDAO {
 	

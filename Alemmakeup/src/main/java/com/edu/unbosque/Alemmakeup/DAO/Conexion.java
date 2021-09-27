@@ -1,4 +1,4 @@
-package dao;
+package com.edu.unbosque.Alemmakeup.DAO;
 
 import java.sql.*;
 

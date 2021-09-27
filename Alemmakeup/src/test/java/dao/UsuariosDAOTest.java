@@ -1,10 +1,9 @@
 package dao;
 
-import static org.junit.jupiter.api.Assertions.*;
-import model.Usuarios;
-import dao.UsuariosDAO;
-
 import org.junit.jupiter.api.Test;
+
+import com.edu.unbosque.Alemmakeup.DAO.UsuariosDAO;
+import com.edu.unbosque.Alemmakeup.model.Usuarios;
 
 class UsuariosDAOTest {
 	
