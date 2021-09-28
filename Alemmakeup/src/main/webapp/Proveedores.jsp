@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>    
-<%@page import="dao.ProveedoresDAO" %>
-<%@page import="model.Proveedores" %>
+<%@page import="com.edu.unbosque.Alemmakeup.DAO.ProveedoresDAO" %>
+<%@page import="com.edu.unbosque.Alemmakeup.model.Proveedores" %>
 <!DOCTYPE html>
 <html>
 	<head>
