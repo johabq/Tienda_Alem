@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.edu.unbosque.Alemmakeup.DAO.UsuariosDAO" %>
+<%@page import="com.edu.unbosque.Alemmakeup.model.Usuarios" %>
+<%@page import="java.util.ArrayList" %>     
 <!DOCTYPE html>
 <html>
 	<head>
@@ -34,16 +37,17 @@
 	            if (!request.getParameterMap().isEmpty()) {
 	            String user = (request.getParameter("usuario"));
 	            String pass = (request.getParameter("pass"));
-	            String admin = "admininicial";
-	            String admin_pass = "admin123456";
-
-	            if (user.equals(admin) && pass.equals(admin_pass)){
-	            	response.sendRedirect("Home.jsp");					
+	            String admin = "";
+	            String admin_pass = "";
+	            UsuariosDAO DAO = new UsuariosDAO();
+	            boolean check = DAO.login(user, pass);
+	            if (check == true){
+	            	response.sendRedirect("Home.jsp");
 	            }else{
 	            	out.println(user);
 	            	%><h2>El usuario y/o contraseña ingresados no son correctos</h2>
 	            	<%
-	            	}
+	            	}         
 	            }
 	            %>
 	        </form>

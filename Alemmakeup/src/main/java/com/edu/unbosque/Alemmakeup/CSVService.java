@@ -25,7 +25,6 @@ public class CSVService {
       System.out.println("este: "+productos.get(1));
       System.out.println("lei el archivo services");
     } catch (IOException e) {
-    	System.out.println("Flayo re duro");
       throw new RuntimeException("Fallo en el proceso de guardar el archivo: " + e.getMessage());
     }
   }

@@ -108,6 +108,44 @@ public class UsuariosDAO {
         }       
     }  
     
+    public boolean login(String usuario, String pass){
+		ArrayList<Usuarios> miUser = new ArrayList<Usuarios>();
+		Conexion con = new Conexion();
+		try {
+			PreparedStatement consulta = con.getConex().prepareStatement("SELECT * FROM usuario WHERE Usuario=? AND Password=?");
+			consulta.setString(1, usuario);
+			consulta.setString(2, pass);
+			ResultSet res = consulta.executeQuery();
+			if (res.next()) {
+				Usuarios user = new Usuarios();
+				user.setId(Integer.parseInt(res.getString("Id")));
+				user.setCedula_usuario(res.getString("Cedula_usuario"));
+				user.setNombre_usuario(res.getString("Nombre_usuario"));
+				user.setEmail_usuario(res.getString("Email_usuario"));
+				user.setUsuario(res.getString("Usuario"));
+				user.setPass(res.getString("Password"));
+				
+				miUser.add(user);
+			}			
+			res.close();
+			consulta.close();
+			con.desconectar();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		String u = miUser.get(0).getUsuario();
+		String p = miUser.get(0).getPass();
+		
+		if (p.equals(pass)&& u.equals(usuario)) {
+			return true;
+		}else {
+			return false;
+		}
+		
+		//return true;
+	}
+    
+    
 
 	
 	
