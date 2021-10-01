@@ -17,24 +17,29 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 		<dependency>
 	    <groupId>org.apache.commons</groupId>
 	    <artifactId>commons-csv</artifactId>
 	    <version>1.8</version>
-		</dependency>		
+		</dependency>	
+			
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
+		
 		<dependency>		
 		    <groupId>com.opencsv</groupId>
 		    <artifactId>opencsv</artifactId>
@@ -47,16 +52,25 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
+				<!-- Para leer JSP -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -68,11 +82,13 @@
 				</exclusion>
 			</exclusions>	
 		</dependency>
+		
 		<dependency>
 		    <groupId>org.hsqldb</groupId>
 		    <artifactId>hsqldb</artifactId>
 		    <scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
 	    <groupId>javax.servlet.jsp.jstl</groupId>
 	    <artifactId>jstl-api</artifactId>
@@ -87,6 +103,18 @@
 	            <groupId>javax.servlet.jsp</groupId>
 	        </exclusion>
 	    </exclusions>
+		</dependency>
+		
+		<dependency>
+    		<groupId>io.springfox</groupId>
+    		<artifactId>springfox-swagger-ui</artifactId>
+    		<version>3.0.0</version>
+		</dependency>
+		
+		<dependency>
+ 			<groupId>io.springfox</groupId>
+ 			<artifactId>springfox-boot-starter</artifactId>
+ 			<version>3.0.0</version>
 		</dependency>
 		
 	</dependencies>
