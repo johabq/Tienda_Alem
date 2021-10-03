@@ -7,7 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="estilo.css">
 	</head>
 	<body>
-			<form method="post">	
+			<form action="/home" method="post">	
 				<header>
 					<div class="container titulo">
 					<h1>Bienvenido a Alem Make Up Store</h1>
@@ -28,7 +28,6 @@
 				</header>		     
 				<footer class="footer">
 				    <button name="aceptar" type="submit">Aceptar</button>
-				    <button name="cancelar" type="submit">Cancelar</button>		
 	            </footer>
 	            <%
 	            if (!request.getParameterMap().isEmpty()) {
@@ -38,7 +37,7 @@
 	            String admin_pass = "admin123456";
 
 	            if (user.equals(admin) && pass.equals(admin_pass)){
-	            	response.sendRedirect("Home.jsp");					
+	               	response.sendRedirect("http://localhost:8080/home");	
 	            }else{
 	            	out.println(user);
 	            	%><h2>El usuario y/o contraseña ingresados no son correctos</h2>
